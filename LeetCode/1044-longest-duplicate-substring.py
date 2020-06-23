@@ -1,0 +1,38 @@
+class Solution:
+    def RabinKarp(self, text, M, q):
+        if M == 0: return True
+        h, t, d = (1<<(8*M-8))%q, 0, 256
+        print("app", h)
+
+        dic = defaultdict(list)
+
+        for i in range(M): 
+            t = (d * t + ord(text[i]))% q
+
+        print(i, M)
+        dic[t].append(i-M+1)
+        print("dic", dic)
+
+        for i in range(len(text) - M):
+            t = (d*(t-ord(text[i])*h) + ord(text[i + M]))% q
+            print("dic", dic)
+            exit()
+            for j in dic[t]:
+                if text[i+1:i+M+1] == text[j:j+M]:
+                    return (True, text[j:j+M])
+            dic[t].append(i+1)
+        return (False, "")
+    def longestDupSubstring(self, S):
+        beg, end = 0, len(S)
+        q = (1<<31) - 1 
+        Found = ""
+        while beg + 1 < end:
+            mid = (beg + end)//2
+            isFound, candidate = self.RabinKarp(S, mid, q)
+            if isFound:
+                beg, Found = mid, candidate
+            else:
+                end = mid
+
+        print(Found)
+
