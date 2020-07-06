@@ -1,10 +1,44 @@
 #User function Template for python3
-def freturn(ele0):
-    return ele0[0]
+
+def merge(parr, l, m, r):
+    i = l
+    j = m+1
+    k = 0
+    temp = []
+    while(i <= m and j <= r):
+        if parr[i][0] < parr[j][0]:
+            temp.append(parr[i])
+            i += 1
+        elif parr[j][0] < parr[i][0]:
+            temp.append(parr[j])
+            j += 1
+        else:
+            if(parr[i][1] < parr[j][1]):
+                temp.append(parr[i])
+                i += 1
+            else:
+                temp.append(parr[j])
+                j += 1
+    while i <= m:
+        temp.append(parr[i])
+        i += 1
+    while j <= r:
+        temp.append(parr[j])
+        j += 1
+    for i in range(l, r+1):
+        parr[i] = temp[k]
+        k += 1
+
+def mergesort(parr, l, r):
+    if(l < r):
+        m = (l+r) // 2
+        mergesort(parr, l, m)
+        mergesort(parr, m+1, r)
+        merge(parr, l, m, r)
 
 def overlappedInterval(parr,n):
-    parr.sort(key=freturn)
-    print("parr:", parr)
+    mergesort(parr, 0, n-1)
+    # print("parr:", parr)
     i = 1
     while(i < len(parr)):
         if(parr[i][0] <= parr[i-1][1]):
