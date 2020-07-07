@@ -5,6 +5,7 @@
 
 def threeSumClosest (arr, target):
     arr.sort()
+    flag = 0
     result = arr[0] + arr[1] + arr[-1]
     for i in range(n-1):
         a_pointer = i + 1
@@ -19,6 +20,8 @@ def threeSumClosest (arr, target):
                 b_pointer -= 1
             else :
                 a_pointer += 1
+        print(curr_sum, end=" ")
+        print("\n")
     return result
 
     # Your Code Here
