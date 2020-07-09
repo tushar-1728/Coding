@@ -6,23 +6,24 @@
 def threeSumClosest (arr, target):
     arr.sort()
     flag = 0
-    result = arr[0] + arr[1] + arr[-1]
+    sums = arr[0] + arr[1] + arr[-1]
+    result = abs(target - sums)
     for i in range(n-1):
         a_pointer = i + 1
         b_pointer = len(arr) - 1
         while a_pointer < b_pointer:
             curr_sum = arr[i] + arr[a_pointer] + arr[b_pointer]
-            if abs(curr_sum - target) == abs(result - target):
-                result = max(curr_sum, result)
-            if abs(curr_sum - target) < abs(result - target):
-                result = curr_sum
+            temp = abs(target - curr_sum)
+            if temp == result:
+                sums = max(curr_sum, sums)
+            if temp < result:
+                result = temp
+                sums = curr_sum
             if curr_sum > target:
                 b_pointer -= 1
             else :
                 a_pointer += 1
-        print(curr_sum, end=" ")
-        print("\n")
-    return result
+    return sums
 
     # Your Code Here
 
