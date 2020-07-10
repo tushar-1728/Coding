@@ -11,6 +11,5 @@ for i in range(1, t+1):
         temp = log(n*(i-1)+1, i)
         # if temp%1 == 0:
         #     narr.append(temp)
-        print(i, temp)
     print(arr)
     print(narr)
