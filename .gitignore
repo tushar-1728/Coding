@@ -1,4 +1,6 @@
 *.sublime-workspace
+*.vscode
 *.txt
 *.out
+*.exe
 test.*

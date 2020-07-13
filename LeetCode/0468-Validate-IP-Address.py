@@ -13,7 +13,6 @@ class Solution:
             for i in addr:
                 if(not i.isdigit()):
                     return("Neither")
-                    exit()
                 if(int(i) < 0 or int(i) > 255):
                     return("Neither")
                 if(i != str(int(i))):
