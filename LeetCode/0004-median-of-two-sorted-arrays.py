@@ -1,5 +1,5 @@
 class Solution:
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+    def findMedianSortedArrays(self, nums1, nums2):
         res = []
         len1 = len(nums1)
         len2 = len(nums2)

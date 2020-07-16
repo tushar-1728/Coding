@@ -8,5 +8,6 @@ class Solution:
                 i += 1
         return i
 
+
 b = Solution()
-print(b.removeElement([0,1,2,2,3,0,4,2], 2))
+print(b.removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2))
