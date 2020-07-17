@@ -19,4 +19,3 @@ class Solution:
 
 b = Solution()
 print(b.maxProfit([]))
-        
