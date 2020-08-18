@@ -1,9 +1,11 @@
 class Solution:
     def findDuplicate(self, nums):
         n = len(nums)
-        total = (n*(n-1))//2
-        extra_total = sum(nums)
-        return extra_total - total
+        temp = [0] * n
+        for i in nums:
+            temp[i] += 1
+            if temp[i] > 1:
+                return i
 
 
 b = Solution()
