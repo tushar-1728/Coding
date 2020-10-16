@@ -6,7 +6,7 @@ class Solution:
         max_count = 0
         for i in range(n):
             d[nums[i]] = d.get(nums[i], 0) + 1
-        print(d)
+        # print(d)
         for i in d.keys():
             if d[i] > max_count:
                 number = i
